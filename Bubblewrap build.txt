@@ -1,0 +1,250 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\lenovo> echo $env:JAVA_HOME
+C:\Program Files\Eclipse Adoptium\jdk-17.0.19.10-hotspot
+PS C:\Users\lenovo> echo $env:ANDROID_HOME
+C:\Users\lenovo\AppData\Local\Android\Sdk
+PS C:\Users\lenovo> echo $env:ANDROID_SDK_ROOT
+C:\Users\lenovo\AppData\Local\Android\Sdk
+PS C:\Users\lenovo> cd C:\Users\lenovo\odikart-twa
+PS C:\Users\lenovo\odikart-twa> bubblewrap build
+,-----.        ,--.  ,--.  ,--.
+|  |) /_,--.,--|  |-.|  |-.|  |,---.,--.   ,--,--.--.,--,--.,---.
+|  .-.  |  ||  | .-. | .-. |  | .-. |  |.'.|  |  .--' ,-.  | .-. |
+|  '--' '  ''  | `-' | `-' |  \   --|   .'.   |  |  \ '-'  | '-' '
+`------' `----' `---' `---'`--'`----'--'   '--`--'   `--`--|  |-'
+                                                           `--'
+Installing Android Build Tools. Please, read and accept the license agreement.
+
+
+cli ERROR Could not find sdkmanager at: C:\Program Files\Eclipse Adoptium\jdk-17.0.19.10-hotspot\bin\sdkmanager.bat
+
+
+PS C:\Users\lenovo\odikart-twa> Get-ChildItem "C:\Users\lenovo\AppData\Local\Android\Sdk" -Recurse -Filter sdkmanager.bat
+
+
+    Directory:
+    C:\Users\lenovo\AppData\Local\Android\Sdk\cmdline-tools\latest\bin
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          7/3/2026   4:49 PM           2781 sdkmanager.bat
+
+
+PS C:\Users\lenovo\odikart-twa> Get-ChildItem
+
+
+    Directory: C:\Users\lenovo\odikart-twa
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          7/3/2026   4:31 PM                app
+d-----          7/3/2026   4:31 PM                gradle
+-a----          7/3/2026   4:38 PM           2682 android.keystore
+-a----          7/3/2026   1:59 PM           1130 build.gradle
+-a----          7/3/2026   1:59 PM            751 gradle.properties
+-a----          7/3/2026   1:59 PM           8706 gradlew
+-a----          7/3/2026   1:59 PM           2918 gradlew.bat
+-a----          7/3/2026   4:31 PM             40 manifest-checksum.txt
+-a----          7/3/2026   1:59 PM             15 settings.gradle
+-a----          7/3/2026   4:31 PM         174840 store_icon.png
+-a----          7/3/2026   4:31 PM           1426 twa-manifest.json
+
+
+PS C:\Users\lenovo\odikart-twa> Get-Content .\twa-manifest.json
+{
+  "packageId": "in.odikart.app",
+  "host": "odikart.in",
+  "name": "Odikart",
+  "launcherName": "Odikart",
+  "display": "standalone",
+  "themeColor": "#4F46E5",
+  "themeColorDark": "#000000",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#FFFFFF",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "https://odikart.in/web-app-manifest-512x512.png",
+  "maskableIconUrl": "https://odikart.in/web-app-manifest-512x512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "C:\\Users\\lenovo\\odikart-twa\\android.keystore",
+    "alias": "odikart"
+  },
+  "appVersionName": "1",
+  "appVersionCode": 1,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://odikart.in/manifest.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {
+    "locationDelegation": {
+      "enabled": true
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://odikart.in/",
+  "minSdkVersion": 21,
+  "orientation": "portrait",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "protocolHandlers": [],
+  "fileHandlers": [],
+  "launchHandlerClientMode": "",
+  "displayOverride": [],
+  "appVersion": "1"
+}
+PS C:\Users\lenovo\odikart-twa> .\gradlew.bat bundleRelease
+Downloading https://services.gradle.org/distributions/gradle-8.11.1-bin.zip
+..................................................................................................................................
+
+Welcome to Gradle 8.11.1!
+
+Here are the highlights of this release:
+ - Parallel load and store for Configuration Cache
+ - Java compilation errors at the end of the build output
+ - Consolidated report for warnings and deprecations
+
+For more details see https://docs.gradle.org/8.11.1/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of AndroidStudio and the command-line tools that were released at different times.
+Checking the license for package Android SDK Build-Tools 35 in C:\Users\lenovo\AppData\Local\Android\Sdk\licenses
+License for package Android SDK Build-Tools 35 accepted.
+Preparing "Install Android SDK Build-Tools 35 v.35.0.0".
+"Install Android SDK Build-Tools 35 v.35.0.0" ready.
+Installing Android SDK Build-Tools 35 in C:\Users\lenovo\AppData\Local\Android\Sdk\build-tools\35.0.0
+"Install Android SDK Build-Tools 35 v.35.0.0" complete.
+"Install Android SDK Build-Tools 35 v.35.0.0" finished.
+Checking the license for package Android SDK Platform 36 in C:\Users\lenovo\AppData\Local\Android\Sdk\licenses
+License for package Android SDK Platform 36 accepted.
+Preparing "Install Android SDK Platform 36 (revision 2)".
+"Install Android SDK Platform 36 (revision 2)" ready.
+Installing Android SDK Platform 36 in C:\Users\lenovo\AppData\Local\Android\Sdk\platforms\android-36
+"Install Android SDK Platform 36 (revision 2)" complete.
+"Install Android SDK Platform 36 (revision 2)" finished.
+
+> Task :app:processReleaseMainManifest
+package="in.odikart.app" found in source AndroidManifest.xml: C:\Users\lenovo\odikart-twa\app\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="in.odikart.app" from the source AndroidManifest.xml: C:\Users\lenovo\odikart-twa\app\src\main\AndroidManifest.xml.
+[Incubating] Problems report is available at: file:///C:/Users/lenovo/odikart-twa/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 7m 3s
+39 actionable tasks: 39 executed
+PS C:\Users\lenovo\odikart-twa> plugins.
+plugins. : The term 'plugins.' is not recognized as the
+name of a cmdlet, function, script file, or operable
+program. Check the spelling of the name, or if a path was
+included, verify that the path is correct and try again.
+At line:1 char:1
++ plugins.
++ ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (plugins.:Str
+   ing) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\lenovo\odikart-twa>
+PS C:\Users\lenovo\odikart-twa> For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+At line:1 char:4
++ For more on this, please refer to
+https://docs.gradle.org/8.11.1/user ...
++    ~
+Missing opening '(' after keyword 'for'.
+    + CategoryInfo          : ParserError: (:) [], ParentCo
+   ntainsErrorRecordException
+    + FullyQualifiedErrorId : MissingOpenParenthesisAfterKe
+   yword
+
+PS C:\Users\lenovo\odikart-twa>
+PS C:\Users\lenovo\odikart-twa> BUILD SUCCESSFUL in 7m 3s
+BUILD : The term 'BUILD' is not recognized as the name of a
+cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify
+that the path is correct and try again.
+At line:1 char:1
++ BUILD SUCCESSFUL in 7m 3s
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (BUILD:String
+   ) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\lenovo\odikart-twa> 39 actionable tasks: 39 executedGet-ChildItem -Recurse -Filter *.aab^C
+PS C:\Users\lenovo\odikart-twa> Get-ChildItem -Recurse -Filter *.aab
+
+
+    Directory: C:\Users\lenovo\odikart-twa\app\build\interme
+    diates\intermediary_bundle\release\packageReleaseBundle
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          7/3/2026   5:08 PM        6565428 intermedia
+                                                  ry-bundle.
+                                                  aab
+
+
+    Directory: C:\Users\lenovo\odikart-twa\app\build\outputs
+    \bundle\release
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          7/3/2026   5:08 PM        2750154 app-releas
+                                                  e.aab
+
+
+PS C:\Users\lenovo\odikart-twa> dir "C:\Users\lenovo\odikart-twa\app\build\outputs\bundle\release"
+
+
+    Directory: C:\Users\lenovo\odikart-twa\app\build\outputs\bundle\release
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          7/3/2026   5:08 PM        2750154 app-release.aab
+
+
+PS C:\Users\lenovo\odikart-twa> Get-Item "C:\Users\lenovo\odikart-twa\app\build\outputs\bundle\release\app-release.aab"
+
+
+    Directory: C:\Users\lenovo\odikart-twa\app\build\outputs\bundle\release
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          7/3/2026   5:08 PM        2750154 app-release.aab
+
+
+PS C:\Users\lenovo\odikart-twa> dir "C:\Users\lenovo\odikart-twa\app\build\outputs\bundle\release"
+
+
+    Directory: C:\Users\lenovo\odikart-twa\app\build\outputs\bundle\release
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          7/3/2026   5:08 PM        2750154 app-release.aab
+
+
+PS C:\Users\lenovo\odikart-twa>
